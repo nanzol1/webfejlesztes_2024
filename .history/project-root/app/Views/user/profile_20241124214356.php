@@ -13,7 +13,7 @@
                     <div class="author-card-avatar"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile picture">
                     </div>
                     <div class="author-card-details">
-                        <h5 class="author-card-name text-lg"><?=$username ?? 'Felhasználónév'?></h5><span class="author-card-position"><?=$register_date ?? 'Regisztráció dátuma'?></span>
+                        <h5 class="author-card-name text-lg"><?=var_dump($_SESSION)?></h5><span class="author-card-position"><?=$register_date ?? 'Regisztráció dátuma'?></span>
                     </div>
                 </div>
             </div>

@@ -64,7 +64,7 @@ class Profile extends BaseController{
                     $Ischanged = true;
                 }
             }
-            if($Ischanged){
+            if(!$Ischanged){
                 return redirect()->to(base_url('profile'))->with('success','Sikeresen adat változtatás');
             }else{
                 return redirect()->to(base_url('profile'));

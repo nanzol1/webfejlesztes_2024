@@ -38,11 +38,11 @@ class Profile extends BaseController{
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
 
-            if($first_name != $modelDatas['first_name']){
+            if($first_name){
                 $userModel->updateUser($userDatas['user_id'],['first_name' => $first_name]);
                 $Ischanged = true;
             }
-            if($last_name != $modelDatas['last_name']){
+            if($last_name){
                 $userModel->updateUser($userDatas['user_id'],['last_name' => $last_name]);
                 $Ischanged = true;
             }
@@ -56,7 +56,7 @@ class Profile extends BaseController{
                 $userModel->updateUser($userDatas['user_id'],['email' => $email]);
                 $Ischanged = true;
             }
-            if(!empty($password)){
+            if($password != password_verify($password,$modelDatas['password'])){
                 if(password_verify($password,$modelDatas['password'])){
                     redirect()->to(base_url('profile'))->with('error','A jelszó nem egyezhet meg az előzővel!'); 
                 }else{
